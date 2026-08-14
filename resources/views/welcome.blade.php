@@ -3,22 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suka Nicky - Oleh-Oleh & Camilan Khas Banjarnegara</title>
-
-    <!-- Tailwind CSS CDN & Alpine.js -->
+    <title>Suka Nicky Banjarnegara - Pelopor Keripik Tempe Mocaf</title>
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js CDN -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-    <!-- Google Fonts: Plus Jakarta Sans -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+    
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
         [x-cloak] { display: none !important; }
-        html { scroll-behavior: smooth; }
-        section[id], footer[id] { scroll-margin-top: 5.5rem; }
     </style>
 </head>
 <body class="bg-[#FAF9F6] text-slate-800 antialiased" 
@@ -32,13 +26,10 @@
               { id: 2, name: 'Manisan Carica Premium', price: 20000, qty: 1 }
           ],
           products: [
-              { id: 1, name: 'Keripik Tempe Mocaf', category: 'keripik', price: 15000, badge: 'BEST SELLER', badgeBg: 'bg-amber-500', desc: 'Renyah, gurih, bebas gluten dengan baluran tepung singkong pilihan.', img: 'https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&fit=crop&q=80&w=400' },
-              { id: 2, name: 'Manisan Carica Premium', category: 'carica', price: 20000, badge: 'OLEH-OLEH KHAS', badgeBg: 'bg-emerald-600', desc: 'Buah pepaya Dieng segar dalam racikan sirup manis alami.', img: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=400' },
-              { id: 3, name: 'Abon Ikan Gurih', category: 'olahan', price: 25000, badge: 'MITRA INDOMARET', badgeBg: 'bg-amber-800', desc: 'Olahan daging ikan segar berkualitas, cocok untuk lauk praktis.', img: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&q=80&w=400' },
-              { id: 4, name: 'Sale Pisang Madu', category: 'keripik', price: 18000, badge: 'RENYAH', badgeBg: 'bg-amber-500', desc: 'Pisang pilihan diolah dengan lapisan manis legit khas Banjarnegara.', img: 'https://images.unsplash.com/photo-1566478989037-eec170784d0b?auto=format&fit=crop&q=80&w=400' }
-          ],
-          chatMessages: [
-              { sender: 'bot', text: 'Halo! Ada yang bisa kami bantu seputar produk camilan & oleh-oleh Suka Nicky Banjarnegara?' }
+              { id: 1, name: 'Keripik Tempe Mocaf', category: 'keripik', price: 15000, badge: 'BEST SELLER', desc: 'Renyah, gurih, bebas gluten dengan baluran tepung singkong pilihan.', img: 'https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&fit=crop&q=80&w=400' },
+              { id: 2, name: 'Manisan Carica Premium', category: 'carica', price: 20000, badge: 'OLEH-OLEH KHAS', desc: 'Buah pepaya Dieng segar dalam racikan sirup manis alami.', img: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=400' },
+              { id: 3, name: 'Abon Ikan Gurih', category: 'olahan', price: 25000, badge: 'MITRA INDOMARET', desc: 'Olahan daging ikan segar berkualitas, cocok untuk lauk praktis.', img: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&q=80&w=400' },
+              { id: 4, name: 'Sale Pisang Madu', category: 'keripik', price: 18000, badge: 'RENYAH', desc: 'Pisang pilihan diolah dengan lapisan manis legit khas Banjarnegara.', img: 'https://images.unsplash.com/photo-1566478989037-eec170784d0b?auto=format&fit=crop&q=80&w=400' }
           ],
           addToCart(product) {
               let item = this.cart.find(i => i.id === product.id);
@@ -73,68 +64,11 @@
               });
               text += `\nTotal Estimasi: Rp ${this.getTotal().toLocaleString('id-ID')}`;
               return 'https://wa.me/6285227393489?text=' + encodeURIComponent(text);
-          },
-          sendQuickReply(type) {
-              if(type === 'harga') {
-                  this.chatMessages.push({ sender: 'user', text: 'Berapa daftar harganya?' });
-                  setTimeout(() => {
-                      this.chatMessages.push({ sender: 'bot', text: 'Harga produk kami sangat terjangkau, mulai dari Rp 15.000 hingga Rp 25.000 per kemasan.' });
-                  }, 400);
-              } else if(type === 'lokasi') {
-                  this.chatMessages.push({ sender: 'user', text: 'Di mana lokasi tokonya?' });
-                  setTimeout(() => {
-                      this.chatMessages.push({ sender: 'bot', text: 'Kami berlokasi di Desa Gumiwang RT 03 / RW 10, Kec. Purwanegara, Kab. Banjarnegara.' });
-                  }, 400);
-              } else if(type === 'pesan') {
-                  this.chatMessages.push({ sender: 'user', text: 'Bagaimana cara pemesanan?' });
-                  setTimeout(() => {
-                      this.chatMessages.push({ sender: 'bot', text: 'Cukup pilih produk di katalog web ini, klik tombol (+), lalu checkout via WhatsApp!' });
-                  }, 400);
-              }
           }
       }">
 
     <!-- 1. NAVBAR -->
-    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-amber-100 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Logo -->
-            <a href="#" class="flex items-center gap-3 group">
-                <img src="{{ asset('images/logo.png') }}" alt="Logo Suka Nicky" class="w-10 h-10 rounded-full object-cover shadow-md shadow-amber-500/20 group-hover:scale-105 transition">
-                <div>
-                    <span class="text-xl font-bold text-amber-950 block leading-tight">Suka Nicky</span>
-                    <span class="text-[10px] text-amber-600 font-semibold tracking-wide">Khas Banjarnegara</span>
-                </div>
-            </a>
-
-            <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
-                <a href="#" class="text-amber-800 border-b-2 border-amber-600 pb-1">Beranda</a>
-                <a href="#tentang" class="hover:text-amber-700 transition">Tentang Kami</a>
-                <a href="#katalog" class="hover:text-amber-700 transition">Katalog</a>
-                <a href="#gubug" class="hover:text-amber-700 transition">Gubug Kuliner</a>
-                <a href="#lokasi" class="hover:text-amber-700 transition">Lokasi</a>
-            </nav>
-
-            <!-- Right Action Buttons -->
-            <div class="flex items-center gap-2 sm:gap-3">
-                <a :href="getWaMessage()" target="_blank" class="hidden sm:flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2.5 rounded-full text-xs font-bold transition shadow-md shadow-emerald-600/20">
-                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-                    Chat WA Admin
-                </a>
-                
-                <button @click="cartOpen = true" class="relative p-2.5 rounded-full bg-amber-50 hover:bg-amber-100 text-amber-800 transition">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-                    <span x-show="getTotalCount() > 0" x-text="getTotalCount()" class="absolute -top-1 -right-1 bg-amber-600 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white"></span>
-                </button>
-
-                <!-- Tombol Hamburger Mobile -->
-                <button @click="mobileMenu = !mobileMenu" class="md:hidden p-2 rounded-lg text-slate-700 hover:text-amber-800 hover:bg-amber-50 transition focus:outline-none">
-                    <svg x-show="!mobileMenu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-                    <svg x-show="mobileMenu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" x-cloak><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-                </button>
-            </div>
-        </div>
-
+    <x-navbar />
         <!-- Dropdown Menu Mobile -->
         <div x-show="mobileMenu" 
              x-cloak 
@@ -202,62 +136,101 @@
     <section class="bg-amber-50/60 border-y border-amber-100/80 py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div class="flex flex-col items-center gap-2">
-                <div class="w-10 h-10 rounded-full bg-white shadow-sm border border-amber-100 flex items-center justify-center text-amber-700 font-bold">✓</div>
+                <div class="w-10 h-10 rounded-full bg-white shadow-xs border border-amber-100 flex items-center justify-center text-amber-700 font-bold">✓</div>
                 <span class="text-xs font-bold text-slate-800">100% Halal Alami</span>
             </div>
             <div class="flex flex-col items-center gap-2">
-                <div class="w-10 h-10 rounded-full bg-white shadow-sm border border-amber-100 flex items-center justify-center text-amber-700 font-bold">🌿</div>
+                <div class="w-10 h-10 rounded-full bg-white shadow-xs border border-amber-100 flex items-center justify-center text-amber-700 font-bold">🌿</div>
                 <span class="text-xs font-bold text-slate-800">Inovasi Tepung Mocaf</span>
             </div>
             <div class="flex flex-col items-center gap-2">
-                <div class="w-10 h-10 rounded-full bg-white shadow-sm border border-amber-100 flex items-center justify-center text-amber-700 font-bold">🏪</div>
+                <div class="w-10 h-10 rounded-full bg-white shadow-xs border border-amber-100 flex items-center justify-center text-amber-700 font-bold">🏪</div>
                 <span class="text-xs font-bold text-slate-800">Mitra Indomaret</span>
             </div>
             <div class="flex flex-col items-center gap-2">
-                <div class="w-10 h-10 rounded-full bg-white shadow-sm border border-amber-100 flex items-center justify-center text-amber-700 font-bold">⭐</div>
+                <div class="w-10 h-10 rounded-full bg-white shadow-xs border border-amber-100 flex items-center justify-center text-amber-700 font-bold">⭐</div>
                 <span class="text-xs font-bold text-slate-800">Resep Warisan 1996</span>
             </div>
         </div>
     </section>
 
     <!-- 4. PRODUK UNGGULAN KATALOG -->
-    <section id="katalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
-            <div>
-                <span class="text-amber-700 text-xs font-bold uppercase tracking-wider">Katalog Produk</span>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Pilihan Favorit Oleh-Oleh</h2>
-                <p class="text-slate-500 text-xs sm:text-sm">Diproduksi higienis langsung dari dapur Suka Nicky Desa Gumiwang</p>
-            </div>
-            <div class="flex items-center gap-2">
-                <button @click="selectedCategory = 'all'" :class="selectedCategory === 'all' ? 'bg-amber-800 text-white' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'" class="px-4 py-2 rounded-lg text-xs font-bold transition">Semua</button>
-                <button @click="selectedCategory = 'keripik'" :class="selectedCategory === 'keripik' ? 'bg-amber-800 text-white' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'" class="px-4 py-2 rounded-lg text-xs font-semibold transition">Keripik</button>
-                <button @click="selectedCategory = 'carica'" :class="selectedCategory === 'carica' ? 'bg-amber-800 text-white' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'" class="px-4 py-2 rounded-lg text-xs font-semibold transition">Carica</button>
-                <button @click="selectedCategory = 'olahan'" :class="selectedCategory === 'olahan' ? 'bg-amber-800 text-white' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'" class="px-4 py-2 rounded-lg text-xs font-semibold transition">Olahan Ikan</button>
-            </div>
+     <section class="py-12 bg-[#FAF8F5]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="mb-8">
+            <span class="text-xs font-bold text-[#A04618] uppercase tracking-wider block mb-1">
+                Katalog Produk
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-[#1E2029]">
+                Pilihan Favorit Oleh-Oleh
+            </h2>
+            <p class="text-sm text-slate-500 mt-1">
+                Diproduksi higienis langsung dari dapur Suka Nicky Desa Gumiwang
+            </p>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <template x-for="product in products" :key="product.id">
-                <div x-show="selectedCategory === 'all' || selectedCategory === product.category" x-transition class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-sm hover:shadow-lg transition group flex flex-col justify-between">
+        <!-- Product Grid Dynamic -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            @forelse($featuredProducts as $product)
+                <div class="bg-white rounded-2xl border border-stone-200/80 shadow-xs hover:shadow-lg transition duration-300 flex flex-col justify-between overflow-hidden group">
                     <div>
-                        <div class="relative aspect-square rounded-xl bg-slate-100 overflow-hidden mb-3">
-                            <span :class="product.badgeBg" class="absolute top-2 left-2 text-white text-[9px] font-extrabold px-2 py-0.5 rounded shadow z-10" x-text="product.badge"></span>
-                            <img :src="product.img" :alt="product.name" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        <!-- Gambar & Badge -->
+                        <div class="relative aspect-square bg-stone-100 overflow-hidden">
+                            <img src="{{ $product->image ? asset('storage/' . $product->image) : 'https://placehold.co/600x600/FAF8F5/A04618?text=' . urlencode($product->name) }}" 
+                                 alt="{{ $product->name }}" 
+                                 onerror="this.onerror=null; this.src='https://placehold.co/600x600/FAF8F5/A04618?text=Suka+Nicky';"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+
+                            @if($product->badge)
+                                <span class="absolute top-3 left-3 bg-[#E2A03F] text-stone-900 text-[10px] font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider shadow-xs">
+                                    {{ $product->badge }}
+                                </span>
+                            @endif
                         </div>
-                        <span class="text-[10px] text-amber-700 font-bold block uppercase" x-text="product.category"></span>
-                        <h3 class="font-bold text-sm text-slate-900 line-clamp-1" x-text="product.name"></h3>
-                        <p class="text-xs text-slate-500 mt-1 line-clamp-2" x-text="product.desc"></p>
+
+                        <!-- Detail Produk -->
+                        <div class="p-4">
+                            <span class="text-[10px] text-[#A04618] font-bold uppercase tracking-wider block mb-1">
+                                {{ $product->category->name ?? 'Unggulan' }}
+                            </span>
+                            <h3 class="font-extrabold text-[#1E2029] text-base group-hover:text-[#A04618] transition line-clamp-1">
+                                {{ $product->name }}
+                            </h3>
+                            <p class="text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed">
+                                {{ $product->description ?? 'Olahan cita rasa otentik buatan Suka Nicky.' }}
+                            </p>
+                        </div>
                     </div>
-                    <div class="mt-4 flex items-center justify-between pt-2 border-t border-slate-100">
-                        <span class="font-extrabold text-amber-900 text-base" x-text="'Rp ' + product.price.toLocaleString('id-ID')"></span>
-                        <button @click="addToCart(product)" class="w-8 h-8 rounded-full bg-amber-500 hover:bg-amber-600 text-white font-bold flex items-center justify-center transition shadow-md shadow-amber-500/20">+</button>
+
+                    <!-- Harga & Tombol Tambah -->
+                    <div class="px-4 pb-4 flex items-center justify-between">
+                        <span class="text-base font-extrabold text-[#1E2029]">
+                            Rp {{ number_format($product->price, 0, ',', '.') }}
+                        </span>
+                        
+                        <button @click="addToCart({{ json_encode($product) }})" 
+                                class="w-9 h-9 bg-[#A04618] hover:bg-[#853812] text-white rounded-full flex items-center justify-center transition shadow-xs cursor-pointer"
+                                title="Tambah ke Keranjang">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
+                            </svg>
+                        </button>
                     </div>
                 </div>
-            </template>
+            @empty
+                <div class="col-span-full text-center py-8 text-slate-400">
+                    Belum ada produk favorit dari database.
+                </div>
+            @endforelse
         </div>
-    </section>
 
-    <!-- 5. KISAH KAMI (TENTANG SUKA NICKY) -->
+    </div>
+</section>
+    
+
+    <!-- 5. KISAH KAMI -->
     <section id="tentang" class="bg-slate-900 text-white py-20 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
             <div class="relative">
@@ -274,7 +247,7 @@
                 <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest">Kisah & Milestone</span>
                 <h2 class="text-3xl font-extrabold">Dari Dapur Gumiwang ke Seluruh Nusantara</h2>
                 <p class="text-slate-300 text-sm leading-relaxed">
-                    Berawal dari usaha keripik pisang rumahan pada tahun 1996, Ibu Sukini mengembangkan inovasi keripik tempe berbalut tepung mocaf sejak 2004. Perjalanan ini melahirkan merek **Suka Nicky** yang konsisten memberdayakan petani lokal Desa Gumiwang.
+                    Berawal dari usaha keripik pisang rumahan pada tahun 1996, Ibu Sukini mengembangkan inovasi keripik tempe berbalut tepung mocaf sejak 2004. Perjalanan ini melahirkan merek <strong>Suka Nicky</strong> yang konsisten memberdayakan petani lokal Desa Gumiwang.
                 </p>
 
                 <div class="space-y-3 pt-2">
@@ -314,17 +287,17 @@
 
                 <div class="grid grid-cols-2 gap-3">
                     <div class="aspect-square rounded-xl bg-amber-800/50 overflow-hidden border border-amber-700/50">
-                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=400" alt="Gubug Kuliner 1" class="w-full h-full object-cover">
                     </div>
                     <div class="aspect-square rounded-xl bg-amber-800/50 overflow-hidden border border-amber-700/50">
-                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=400" alt="Gubug Kuliner 2" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 7. CARA PESAN KELUAR -->
+    <!-- 7. CARA PESAN -->
     <section class="bg-white py-16 border-y border-slate-200/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-2xl font-extrabold text-slate-900">Cara Mudah Pemesanan</h2>
@@ -355,7 +328,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
             <div class="space-y-4">
                 <div class="flex items-center gap-3">
-                    <img src="{{ asset('images/logo.png') }}" alt="Logo Suka Nicky" class="w-10 h-10 rounded-full object-cover shadow-md shadow-amber-500/20">
+                    <div class="w-10 h-10 rounded-full bg-amber-800 text-amber-100 flex items-center justify-center font-bold text-lg">
+                        SN
+                    </div>
                     <span class="text-lg font-bold text-white">Suka Nicky Banjarnegara</span>
                 </div>
                 <p class="text-slate-400 leading-relaxed">
@@ -383,9 +358,17 @@
         </div>
     </footer>
 
-    <!-- 9. SLIDE-OVER CARI KERANJANG DINAMIS -->
-    <div x-show="cartOpen" class="fixed inset-0 z-50 overflow-hidden" x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-        <div @click="cartOpen = false" class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
+    <!-- 9. SLIDE-OVER DRAWER KERANJANG DINAMIS -->
+    <div x-show="cartOpen" 
+         class="fixed inset-0 z-50 overflow-hidden" 
+         x-cloak 
+         x-transition:enter="transition ease-out duration-300" 
+         x-transition:enter-start="opacity-0" 
+         x-transition:enter-end="opacity-100" 
+         x-transition:leave="transition ease-in duration-200" 
+         x-transition:leave-start="opacity-100" 
+         x-transition:leave-end="opacity-0">
+        <div @click="cartOpen = false" class="absolute inset-0 bg-slate-900/60 backdrop-blur-xs"></div>
         <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
             <div class="w-screen max-w-md bg-white p-6 shadow-2xl flex flex-col justify-between">
                 <div>
@@ -424,45 +407,14 @@
                         <span>Total Estimasi:</span>
                         <span class="text-amber-900 text-base" x-text="'Rp ' + getTotal().toLocaleString('id-ID')"></span>
                     </div>
-                    <a :href="getWaMessage()" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-center font-bold py-3.5 rounded-xl text-xs transition block shadow-lg shadow-emerald-600/20">
-                        Kirim Pesanan ke WhatsApp &rarr;
+                    <a :href="getWaMessage()" 
+                       target="_blank" 
+                       class="block w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-center text-xs rounded-xl shadow-md transition">
+                        Checkout via WhatsApp
                     </a>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- 10. WIDGET FLOATING CHATBOT CS DIGITAL (Pojok Kanan Bawah) -->
-    <div class="fixed bottom-6 right-6 z-40">
-        <!-- Chat Drawer Window -->
-        <div x-show="chatOpen" class="mb-4 w-80 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden" x-cloak x-transition>
-            <div class="bg-amber-500 text-white p-4 flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                    <div class="w-7 h-7 rounded-full bg-white text-amber-600 font-bold flex items-center justify-center text-xs">CS</div>
-                    <span class="font-bold text-xs">Asisten Suka Nicky</span>
-                </div>
-                <button @click="chatOpen = false" class="text-white text-lg font-bold">&times;</button>
-            </div>
-            
-            <div class="p-4 space-y-3 text-xs text-slate-600 h-64 overflow-y-auto bg-slate-50 flex flex-col">
-                <template x-for="(msg, idx) in chatMessages" :key="idx">
-                    <div :class="msg.sender === 'bot' ? 'bg-white text-slate-700 border-slate-200 self-start' : 'bg-amber-500 text-white self-end'" class="p-3 rounded-xl border shadow-sm max-w-[85%]">
-                        <p x-text="msg.text"></p>
-                    </div>
-                </template>
-            </div>
-
-            <div class="p-2 border-t border-slate-100 bg-white flex flex-wrap gap-1">
-                <button @click="sendQuickReply('harga')" class="px-2.5 py-1 bg-amber-50 hover:bg-amber-100 text-amber-900 rounded-full text-[10px] font-semibold border border-amber-200 transition">Cek Harga</button>
-                <button @click="sendQuickReply('lokasi')" class="px-2.5 py-1 bg-amber-50 hover:bg-amber-100 text-amber-900 rounded-full text-[10px] font-semibold border border-amber-200 transition">Lokasi Toko</button>
-                <button @click="sendQuickReply('pesan')" class="px-2.5 py-1 bg-amber-50 hover:bg-amber-100 text-amber-900 rounded-full text-[10px] font-semibold border border-amber-200 transition">Cara Pesan</button>
-            </div>
-        </div>
-
-        <!-- Trigger Button -->
-        <button @click="chatOpen = !chatOpen" class="w-13 h-13 p-3.5 bg-amber-500 hover:bg-amber-600 text-white rounded-full shadow-2xl flex items-center justify-center transition transform active:scale-95">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-        </button>
     </div>
 
 </body>
