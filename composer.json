@@ -3,7 +3,12 @@
     "name": "suka-nicky/website",
     "type": "project",
     "description": "Website katalog produk dan layanan digital Suka Nicky - Kuliner khas Banjarnegara.",
-    "keywords": ["laravel", "livewire", "filament", "umkm"],
+    "keywords": [
+        "laravel",
+        "livewire",
+        "filament",
+        "umkm"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.3",
@@ -44,7 +49,8 @@
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "@php artisan filament:upgrade"
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
