@@ -83,7 +83,7 @@
             <a href="#tentang" @click="mobileMenu = false" class="block py-2 px-3 rounded-lg hover:bg-amber-50 hover:text-amber-800 transition">Tentang Kami</a>
             <a href="#katalog" @click="mobileMenu = false" class="block py-2 px-3 rounded-lg hover:bg-amber-50 hover:text-amber-800 transition">Katalog</a>
             <a href="#gubug" @click="mobileMenu = false" class="block py-2 px-3 rounded-lg hover:bg-amber-50 hover:text-amber-800 transition">Gubug Kuliner</a>
-            <a href="#lokasi" @click="mobileMenu = false" class="block py-2 px-3 rounded-lg hover:bg-amber-50 hover:text-amber-800 transition">Lokasi</a>
+            <a href="https://maps.app.goo.gl/7RwZBqbxb8ahMeop7" target="_blank" rel="noopener noreferrer" @click="mobileMenu = false" class="block py-2 px-3 rounded-lg hover:bg-amber-50 hover:text-amber-800 transition">Lokasi</a>
             
             <div class="pt-2">
                 <a :href="getWaMessage()" target="_blank" class="flex sm:hidden items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2.5 rounded-xl text-xs font-bold transition shadow-md">
@@ -279,7 +279,7 @@
                         Nikmati santapan khas Banjarnegara dengan suasana pedesaan yang asri di Desa Gumiwang. Sajian unggulan Ikan Patin Asap, Nasi Krekel, dan Es Dawet Ayu siap memanjakan lidah Anda.
                     </p>
                     <div class="pt-2">
-                        <a href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-6 py-3 rounded-xl text-xs transition shadow-lg shadow-amber-500/20">
+                        <a href="https://maps.app.goo.gl/7RwZBqbxb8ahMeop7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-6 py-3 rounded-xl text-xs transition shadow-lg shadow-amber-500/20">
                             📍 Petunjuk Arah Lokasi Warung
                         </a>
                     </div>

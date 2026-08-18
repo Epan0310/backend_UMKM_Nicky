@@ -34,7 +34,7 @@
 
             <!-- Link Anchor Halaman Utama -->
             <a href="{{ url('/#gubug') }}" class="text-slate-600 hover:text-[#A04618] transition">Gubug Kuliner</a>
-            <a href="{{ url('/#lokasi') }}" class="text-slate-600 hover:text-[#A04618] transition">Lokasi</a>
+            <a href="https://maps.app.goo.gl/7RwZBqbxb8ahMeop7" target="_blank" rel="noopener noreferrer" class="text-slate-600 hover:text-[#A04618] transition">Lokasi</a>
         </nav>
 
         <!-- Right Action Buttons -->
@@ -73,6 +73,6 @@
         <a href="{{ route('tentang') }}" @click="mobileMenu = false" class="block py-2.5 px-3 rounded-xl {{ request()->routeIs('tentang') ? 'bg-[#FAF5EF] text-[#A04618] font-bold' : 'hover:bg-[#FAF5EF] hover:text-[#A04618]' }} transition">Tentang Kami</a>
         <a href="{{ url('/#katalog') }}" @click="mobileMenu = false" class="block py-2.5 px-3 rounded-xl hover:bg-[#FAF5EF] hover:text-[#A04618] transition">Katalog</a>
         <a href="{{ url('/#gubug') }}" @click="mobileMenu = false" class="block py-2.5 px-3 rounded-xl hover:bg-[#FAF5EF] hover:text-[#A04618] transition">Gubug Kuliner</a>
-        <a href="{{ url('/#lokasi') }}" @click="mobileMenu = false" class="block py-2.5 px-3 rounded-xl hover:bg-[#FAF5EF] hover:text-[#A04618] transition">Lokasi</a>
+        <a href="https://maps.app.goo.gl/7RwZBqbxb8ahMeop7" target="_blank" rel="noopener noreferrer" @click="mobileMenu = false" class="block py-2.5 px-3 rounded-xl hover:bg-[#FAF5EF] hover:text-[#A04618] transition">Lokasi</a>
     </div>
 </header>
