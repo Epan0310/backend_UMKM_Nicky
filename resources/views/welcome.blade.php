@@ -15,7 +15,8 @@
         [x-cloak] { display: none !important; }
     </style>
 </head>
-<body class="bg-[#FAF9F6] text-slate-800 antialiased" 
+<body class="bg-[#FAF9F6] text-slate-800 antialiased"
+      @open-cart.window="cartOpen = true"
       x-data="{ 
           cartOpen: false, 
           chatOpen: false, 
@@ -69,30 +70,6 @@
 
     <!-- 1. NAVBAR -->
     <x-navbar />
-        <!-- Dropdown Menu Mobile -->
-        <div x-show="mobileMenu" 
-             x-cloak 
-             x-transition:enter="transition ease-out duration-200" 
-             x-transition:enter-start="opacity-0 -translate-y-2" 
-             x-transition:enter-end="opacity-100 translate-y-0" 
-             x-transition:leave="transition ease-in duration-150" 
-             x-transition:leave-start="opacity-100 translate-y-0" 
-             x-transition:leave-end="opacity-0 -translate-y-2" 
-             class="md:hidden bg-white border-t border-amber-100 px-4 pt-3 pb-5 space-y-2 font-semibold text-sm text-slate-700 shadow-xl">
-            <a href="#" @click="mobileMenu = false" class="block py-2 px-3 rounded-lg hover:bg-amber-50 hover:text-amber-800 transition">Beranda</a>
-            <a href="#tentang" @click="mobileMenu = false" class="block py-2 px-3 rounded-lg hover:bg-amber-50 hover:text-amber-800 transition">Tentang Kami</a>
-            <a href="#katalog" @click="mobileMenu = false" class="block py-2 px-3 rounded-lg hover:bg-amber-50 hover:text-amber-800 transition">Katalog</a>
-            <a href="#gubug" @click="mobileMenu = false" class="block py-2 px-3 rounded-lg hover:bg-amber-50 hover:text-amber-800 transition">Gubug Kuliner</a>
-            <a href="https://maps.app.goo.gl/7RwZBqbxb8ahMeop7" target="_blank" rel="noopener noreferrer" @click="mobileMenu = false" class="block py-2 px-3 rounded-lg hover:bg-amber-50 hover:text-amber-800 transition">Lokasi</a>
-            
-            <div class="pt-2">
-                <a :href="getWaMessage()" target="_blank" class="flex sm:hidden items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2.5 rounded-xl text-xs font-bold transition shadow-md">
-                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-                    Chat WA Admin
-                </a>
-            </div>
-        </div>
-    </header>
 
     <!-- 2. HERO SECTION -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
@@ -155,7 +132,7 @@
     </section>
 
     <!-- 4. PRODUK UNGGULAN KATALOG -->
-     <section class="py-12 bg-[#FAF8F5]">
+     <section id="katalog" class="py-12 bg-[#FAF8F5]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Section Header -->

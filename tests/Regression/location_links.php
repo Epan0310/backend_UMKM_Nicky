@@ -9,7 +9,7 @@ $secureAttributes = sprintf(
 
 $expectations = [
     $root.'/resources/views/components/navbar.blade.php' => 2,
-    $root.'/resources/views/welcome.blade.php' => 2,
+    $root.'/resources/views/welcome.blade.php' => 1,
 ];
 
 foreach ($expectations as $file => $expectedCount) {
